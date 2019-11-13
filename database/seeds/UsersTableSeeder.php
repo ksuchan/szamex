@@ -11,8 +11,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $userRole = config('roles.models.role')::where('name', '=', 'User')->first();
-        $adminRole = config('roles.models.role')::where('name', '=', 'Admin')->first();
+        $userRole = config('roles.models.role')::where('slug', '=', 'user')->first();
+        $adminRole = config('roles.models.role')::where('slug', '=', 'admin')->first();
         $permissions = config('roles.models.permission')::all();
 
         /*
