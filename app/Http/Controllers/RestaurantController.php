@@ -15,7 +15,7 @@ class RestaurantController extends Controller
     public function index()
     {
         return view('restaurant.index', [
-            'restaurants' => Restaurant::all()
+            'restaurants' => Restaurant::with('dishes', 'openingHours')->get()
         ]);
     }
 
@@ -48,7 +48,9 @@ class RestaurantController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
-        //
+        return view('restaurant.show', [
+            'restaurant' => $restaurant->load(['openingHours', 'dishes'])
+        ]);
     }
 
     /**

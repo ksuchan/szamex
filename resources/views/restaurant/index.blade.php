@@ -1,9 +1,15 @@
 <section>
-    <table>
+    <table cellpadding="10">
         <thead>
             <tr>
                 <th>
                     Nazwa:
+                </th>
+                <th>
+                    Adres:
+                </th>
+                <th>
+                    Godziny otwarcia
                 </th>
             </tr>
         </thead>
@@ -11,7 +17,26 @@
             @forelse($restaurants as $restaurant)
                 <tr>
                     <td>
-                        {{ $restaurant->name }}
+                        <a href="{{ route('restaurant.show', ['restaurant' => $restaurant->id]) }}">
+                            {{ $restaurant->name }}
+                        </a>
+                    </td>
+                    <td>
+                        {{ $restaurant->address  }}
+                    </td>
+                    <td>
+                        <table>
+                            @foreach( $restaurant->openingHours as $h )
+                                <tr>
+                                    <td>
+                                        {{ $h->day }}
+                                    </td>
+                                    <td>
+                                        {{ $h->from . ' - ' . $h->to  }}
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </table>
                     </td>
                 </tr>
             @empty

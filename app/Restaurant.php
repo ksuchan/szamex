@@ -9,6 +9,10 @@ class Restaurant extends Model
 {
     use SoftDeletes;
 
+    protected $attributes = array(
+        'name', 'street', 'number', 'city'
+    );
+
     /*
      * Create one to many relation with Dish entity
      */
@@ -21,5 +25,12 @@ class Restaurant extends Model
      */
     public function openingHours() {
         return $this->hasMany('App\OpeningHours');
+    }
+
+    /*
+        Define accessor for address property
+    */
+    public function getAddressAttribute() {
+        return $this->street . ' ' . $this->number . ', ' . $this->city;
     }
 }
