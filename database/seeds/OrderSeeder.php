@@ -16,16 +16,17 @@ class OrderSeeder extends Seeder
         DB::table('order')->insert([
             'Id' => 1,
             'OrderCode' => 'kod zamówienia',
-            'IdCart' => 1,
-            'IdRestaurant' => 1,
-            'IdSupplier' => 1,
+            'CartId' => 1,
+            'RestaurantId' => 1,
+            'SupplierId' => 1,
             'TotalPrice' => 99.9,
             'DeliveryPrice' => 39.9,
             'OrderPrice' => 60.0,
             'DiscountPrice' => 0.0,
+            'DeliveryTime' => '2019-12-10 16:30:00',
             'DeliveryAddress' => 'Opole ul. Ozimska 14.7',
             'DeliveryCity' => 'Opole',			
-            'IdORderStatus' => 1
+            'OrderStatusId' => 1
         ]);
     }
 }
