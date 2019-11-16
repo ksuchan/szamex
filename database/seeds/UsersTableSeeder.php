@@ -12,8 +12,9 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $userRole = config('roles.models.role')::where('slug', '=', 'user')->first();
+        $delivererRole = config('roles.models.role')::where('slug', '=', 'deliverer')->first();
+        $restaurantRole = config('roles.models.role')::where('slug', '=', 'restaurant')->first();
         $adminRole = config('roles.models.role')::where('slug', '=', 'admin')->first();
-        $permissions = config('roles.models.permission')::all();
 
         /*
          * Add Users
@@ -27,9 +28,7 @@ class UsersTableSeeder extends Seeder
             ]);
 
             $newUser->attachRole($adminRole);
-            foreach ($permissions as $permission) {
-                $newUser->attachPermission($permission);
-            }
+            $newUser->attachRole($userRole);
         }
 
         if (config('roles.models.defaultUser')::where('email', '=', 'user@user.com')->first() === null) {
@@ -40,6 +39,30 @@ class UsersTableSeeder extends Seeder
             ]);
 
             $newUser;
+            $newUser->attachRole($userRole);
+        }
+
+        if (config('roles.models.defaultUser')::where('email', '=', 'deliverer@deliverer.com')->first() === null) {
+            $newUser = config('roles.models.defaultUser')::create([
+                'name'     => 'Deliverer',
+                'email'    => 'deliverer@deliverer.com',
+                'password' => bcrypt('password'),
+            ]);
+
+            $newUser;
+            $newUser->attachRole($delivererRole);
+            $newUser->attachRole($userRole);
+        }
+
+        if (config('roles.models.defaultUser')::where('email', '=', 'restaurant@restaurant.com')->first() === null) {
+            $newUser = config('roles.models.defaultUser')::create([
+                'name'     => 'Restaurant',
+                'email'    => 'restaurant@restaurant.com',
+                'password' => bcrypt('password'),
+            ]);
+
+            $newUser;
+            $newUser->attachRole($restaurantRole);
             $newUser->attachRole($userRole);
         }
     }
