@@ -20,6 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('restaurant', 'RestaurantController');
 Route::resource('order', 'OrderController');
+Route::resource('cart', 'CartController');
 
 Route::get('/admin/users', 'Admin\UsersController@list')->name('users.list');
 Route::get('/admin/users/add', 'Admin\UsersController@addUser')->name('users.add');

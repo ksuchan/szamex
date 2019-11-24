@@ -14,7 +14,7 @@ class CreateOrderElementStatusTable extends Migration
     public function up()
     {
         
-		Schema::create('order_elements_status', function (Blueprint $table) {
+		Schema::create('order_element_status', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
         });
@@ -27,6 +27,6 @@ class CreateOrderElementStatusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('order_elements_status');
+        Schema::dropIfExists('order_element_status');
     }
 }
