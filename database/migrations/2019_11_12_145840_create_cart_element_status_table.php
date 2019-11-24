@@ -14,7 +14,7 @@ class CreateCartElementStatusTable extends Migration
     public function up()
     {
         
-		Schema::create('cart_element_status', function (Blueprint $table) {
+		Schema::create('cart_elements_status', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
         });
@@ -27,6 +27,6 @@ class CreateCartElementStatusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cart_element_status');
+        Schema::dropIfExists('cart_elements_status');
     }
 }

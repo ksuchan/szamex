@@ -14,12 +14,12 @@ class CreateOrderTable extends Migration
     public function up()
     {
         
-		Schema::create('order', function (Blueprint $table) {
+		Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('order_code');
-            $table->bigInteger('cart_id')->foreign('cart_id')->references('id')->on('cart');
-            $table->bigInteger('restaurant_id')->foreign('restaurant_id')->references('id')->on('restaurant');
-            $table->bigInteger('supplier_id')->foreign('supplier_id')->references('id')->on('supplier');
+            $table->bigInteger('cart_id')->foreign('cart_id')->references('id')->on('carts');
+            $table->bigInteger('restaurant_id')->foreign('restaurant_id')->references('id')->on('restaurants');
+            $table->bigInteger('supplier_id')->foreign('supplier_id')->references('id')->on('suppliers');
             $table->float('total_price');
             $table->float('delivery_price');
             $table->float('order_price');
@@ -39,6 +39,6 @@ class CreateOrderTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('order');
+        Schema::dropIfExists('orders');
     }
 }

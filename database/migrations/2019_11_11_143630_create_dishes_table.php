@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCartElementTable extends Migration
+class CreateDishesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,21 @@ class CreateCartElementTable extends Migration
      */
     public function up()
     {
-        
-		Schema::create('cart_elements', function (Blueprint $table) {
+        Schema::create(/**
+         * @param Blueprint $table
+         */
+            'dishes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('restaurant_id')->foreign('restaurant_id')->references('id')->on('restaurants');
-            $table->bigInteger('cart_id')->foreign('cart_id')->references('id')->on('carts');
-            $table->bigInteger('product_id')->foreign('product_id')->references('id')->on('products');
-            $table->bigInteger('cart_element_status_id')->foreign('cart_element_status_id')->references('id')->on('cart_elements_status');
-            $table->float('amount');
+            $table->string('name');
+            $table->longText('ingredients');
             $table->float('price');
+            $table->boolean('gluten')->default(false);
+            $table->boolean('vegan')->default(false);
+            $table->boolean('spicy')->default(false);
+            $table->softDeletes();
+            $table->timestamps();
         });
-		
     }
 
     /**
@@ -33,6 +37,6 @@ class CreateCartElementTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cart_elements');
+        Schema::dropIfExists('dishes');
     }
 }
