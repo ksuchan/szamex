@@ -1,17 +1,31 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <title>Szamex - styleguide</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <meta charset="UTF-8" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        <title>{{ config('app.name', 'Laravel') }}</title>
+
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
+
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+        <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
-        <img src="images/logo.png" />
+        <img src="{{ asset('images/logo.png') }}" />
 
         <div class="dish">
             <div class="image">
                 <div class="media">
-                    <img src="https://placehold.it/420x237" />
+                    <img src="{{ asset('images/420x237.png') }}" />
                 </div>
                 <div class="rating">4.5</div>
                 <div class="choose"><a href="#">Wybieram</a></div>
@@ -25,22 +39,22 @@
                 <div class="people">
                     <div class="people-item">
                         <div class="media">
-                            <img src="https://placehold.it/20x20" />
+                            <img src="{{ asset('images/20x20.png') }}" />
                         </div>
                     </div>
                     <div class="people-item">
                         <div class="media">
-                            <img src="https://placehold.it/20x20" />
+                        <img src="{{ asset('images/20x20.png') }}" />
                         </div>
                     </div>
                     <div class="people-item">
                         <div class="media">
-                            <img src="https://placehold.it/20x20" />
+                        <img src="{{ asset('images/20x20.png') }}" />
                         </div>
                     </div>
                     <div class="people-item">
                         <div class="media">
-                            <img src="https://placehold.it/20x20" />
+                        <img src="{{ asset('images/20x20.png') }}" />
                         </div>
                         <span class="additionall">+2</span>
                     </div>
@@ -68,27 +82,6 @@
             <input type="password" placeholder="hasło" />
         </form>
 
-        <div class="dish">
-            <div class="media">
-                <img src="https://placehold.it/420x237" />
-            </div>
-            <div class="content">
-                <div class="title"></div>
-                <div class="badges">
-                    <div class="badge pink">Polska</div>
-                    <div class="badge blue">12 km</div>
-                </div>
-                <div class="people">
-                    <div class="people-item">
-                        <div class="media">
-                            <img src="https://placehold.it/20x20" />
-                        </div>
-                    </div>
-                </div>
-                <div class="address">
-                    Opole ul. Patyzantów 357b
-                </div>
-            </div>
-        </div>
+        
     </body>
 </html>

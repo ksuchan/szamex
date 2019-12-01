@@ -1,14 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700&display=swap&subset=latin-ext');
-
-@import '_reset';
-
-$primaryColor: #F8A22F;
-$animationDuration: 200ms;
-$fontFamily: 'Josefin Sans', sans-serif;
-
 body {
     font-family: $fontFamily;
     padding: 15px;
+    &.home {
+        background-image: url(../images/bg-front.png);
+        background-size: 75%;
+        background-position: top right;
+        background-repeat: no-repeat;
+
+    }
 }
 
 button,

@@ -1,5 +1,318 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+/* Box sizing rules */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core body defaults */
+
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    -webkit-transition-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  padding: 15px;
+}
+
+body.home {
+  background-image: url(/images/bg-front.png?895709fa73e4ef4952257d84747d1409);
+  background-size: 75%;
+  background-position: top right;
+  background-repeat: no-repeat;
+}
+
+button,
+.button {
+  background-color: #F8A22F;
+  border: 0;
+  display: -webkit-inline-box;
+  display: inline-flex;
+  padding: 0 30px;
+  font-weight: 400;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 24px;
+  border-radius: 32px;
+  height: 64px;
+  -webkit-box-align: center;
+          align-items: center;
+  cursor: pointer;
+  -webkit-transition: background-color 200ms;
+  transition: background-color 200ms;
+}
+
+button:hover,
+.button:hover {
+  background: #ec8a08;
+}
+
+form {
+  background: transparent -webkit-gradient(linear, left bottom, left top, from(#00000062), color-stop(100%, #08080862), to(#2D2D2D69)) 0% 0% no-repeat padding-box;
+  background: transparent linear-gradient(0deg, #00000062 0%, #08080862 100%, #2D2D2D69 100%) 0% 0% no-repeat padding-box;
+  border-radius: 50px;
+  backdrop-filter: blur(36px);
+  -webkit-backdrop-filter: blur(36px);
+  padding: 100px;
+}
+
+input {
+  height: 94px;
+  background-color: rgba(255, 255, 255, 0.22);
+  border: solid 2px #000000;
+  color: #FFFFFF;
+  border-radius: 36px;
+  padding: 15px 0 15px 90px;
+  min-width: 475px;
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+
+.dish {
+  box-shadow: 0px 10px 99px #0000001F;
+  border-radius: 20px 20px 0px 0px;
+  max-width: 420px;
+  overflow: hidden;
+}
+
+.dish .image {
+  position: relative;
+}
+
+.dish .image .media img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.dish .image .choose,
+.dish .image .rating {
+  position: absolute;
+  top: 15px;
+  background-color: #FFFFFF;
+  font-size: 12px;
+  text-transform: uppercase;
+  box-shadow: 0px 3px 6px #00000029;
+  height: 24px;
+  line-height: 24px;
+  padding: 0 15px;
+  border-radius: 8px;
+}
+
+.dish .image .choose {
+  left: 15px;
+  color: #4CD964;
+  font-weight: 700;
+}
+
+.dish .image .choose a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.dish .image .rating {
+  right: 15px;
+  background-image: url(/images/star.svg?8e846271938064e2402b99311aab9807);
+  background-size: 12px;
+  background-repeat: no-repeat;
+  background-position: center left 10px;
+  padding-left: 28px;
+}
+
+.dish .content {
+  padding: 20px 15px;
+  position: relative;
+}
+
+.dish .content .title {
+  font-size: 20px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.dish .content .badges {
+  display: inline-block;
+}
+
+.dish .content .badges .badge {
+  display: -webkit-inline-box;
+  display: inline-flex;
+  color: white;
+  height: 18px;
+  -webkit-box-align: center;
+          align-items: center;
+  font-size: 10px;
+  padding: 0 10px;
+  border-radius: 10px;
+}
+
+.dish .content .badges .badge.pink {
+  background: transparent -webkit-gradient(linear, right top, left top, from(#FF5673), to(#FF8C48)) 0% 0% no-repeat padding-box;
+  background: transparent linear-gradient(270deg, #FF5673 0%, #FF8C48 100%) 0% 0% no-repeat padding-box;
+}
+
+.dish .content .badges .badge.blue {
+  background: #848DFF;
+}
+
+.dish .content .people {
+  display: -webkit-inline-box;
+  display: inline-flex;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.dish .content .people .people-item {
+  position: relative;
+  z-index: 5;
+  display: block;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  border: 2px solid #FFFFFF;
+  margin-right: -6px;
+  border-radius: 10px;
+}
+
+.dish .content .people .people-item:nth-child(2) {
+  z-index: 4;
+}
+
+.dish .content .people .people-item:nth-child(3) {
+  z-index: 3;
+}
+
+.dish .content .people .people-item:nth-child(4) {
+  z-index: 2;
+}
+
+.dish .content .people .people-item .media {
+  position: relative;
+}
+
+.dish .content .people .people-item .media img {
+  max-width: 100%;
+  height: auto;
+  max-width: 100%;
+  width: auto;
+}
+
+.dish .content .people .people-item .media:before {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: block;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.dish .content .people .people-item .additionall {
+  font-size: 8px;
+  color: #FFFFFF;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
+.dish .content .address {
+  color: #8A98BA;
+  font-size: 14px;
+}
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
