@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('/styleguide', function () {
     return view('styleguide');
@@ -21,7 +19,16 @@ Route::get('/styleguide', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('restaurants', function(){
+    return view('restaurant/search');
+})->name('restaurants.search');
+
+Route::get('restaurants/list', function(){
+    return view('restaurant/list');
+})->name('restaurants.list');
+
 Route::resource('restaurant', 'RestaurantController');
 
 Route::get('/admin/users', 'Admin\UsersController@list')->name('users.list');

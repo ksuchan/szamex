@@ -22,7 +22,16 @@
     <body>
         <img src="{{ asset('images/logo.png') }}" />
 
-        <div class="dish">
+        <div class="select-wrapper">
+            <select>
+                <option>opcja</option>
+                <option>opcja</option>
+                <option>opcja</option>
+                <option>opcja</option>
+            </select>
+        </div>
+
+        <div class="restaurant-teaser">
             <div class="image">
                 <div class="media">
                     <img src="{{ asset('images/420x237.png') }}" />
