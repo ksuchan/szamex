@@ -1,0 +1,62 @@
+.site-slogan {
+    color: #242424;
+    font-size: 71px;
+    font-weight: 400;
+    line-height: 92px;
+    max-width: 560px;
+    .color {
+        color: #f8a22f;
+    }
+}
+
+.slogan-subtitle {
+    color: rgba(#242424, .5);
+    font-family: "Segoe UI";
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 41px;
+    max-width: 560px;
+    margin-bottom: 50px;
+}
+
+.socialmedia {
+    margin: 0 -15px;
+    display: flex;
+    .icon {
+        padding: 15px;
+    }
+}
+
+.restaurant-selection {
+    background: url(../images/select-restaurant-bg.png);
+    height: 805px;
+    padding-top: 200px;
+    .form-restaurant-selection {
+        max-width: 625px;
+        margin: 0 auto ;
+        .select-city,
+        .select-kitchen { 
+            margin-bottom: 15px;
+            label {
+                font-size: 23px;
+                color: #f8a22f;
+            }
+        }
+        .select-button {
+            button {
+                border-radius: 0;
+                width: 100%;
+                justify-content: center;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
+.restaurant-listing {
+    justify-content: center;
+    margin: -41px -36px;
+    .flex-item {
+        padding: 41px 36px;
+    }
+}
