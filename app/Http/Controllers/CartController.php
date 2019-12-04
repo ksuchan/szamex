@@ -15,7 +15,7 @@ class CartController extends Controller
     public function index()
     {
         return view('cart.index', [
-            'carts' => Cart::all()
+            'carts' => Cart::with('cartStatus')->get()
         ]);
     }
 
@@ -37,7 +37,7 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -48,7 +48,10 @@ class CartController extends Controller
      */
     public function show(Cart $cart)
     {
-        //
+        return view('cart.show', [
+            'cart' => $cart->load(['cartStatus'])
+        ]);
+        
     }
 
     /**

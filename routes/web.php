@@ -34,6 +34,15 @@ Route::resource('restaurant', 'RestaurantController');
 Route::resource('order', 'OrderController');
 Route::resource('cart', 'CartController');
 
+Route::get('carts', function(){
+    return view('cart/search');
+})->name('carts.search');
+
+Route::get('carts/list', function(){
+    return view('cart/list');
+})->name('carts.list');
+
+
 Route::get('/admin/users', 'Admin\UsersController@list')->name('users.list');
 Route::get('/admin/users/add', 'Admin\UsersController@addUser')->name('users.add');
 Route::post('/admin/users/add', 'Admin\UsersController@addUserPost')->name('users.add_post');

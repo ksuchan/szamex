@@ -9,23 +9,23 @@ class Cart extends Model
 {
     use SoftDeletes;
 
-    // protected $attributes = array(
-    //     'name', 'street', 'number', 'city'
-    // );
+    protected $attributes = array(
+        'ordinal_number', 
+    );
 
     /*
      * Create one to many relation with Dish entity
      */
-    public function dishes() {
+    public function cartElements() {
         return $this->hasMany('App\CartElements');
     }
 
-    // /*
-    //  * Create one to many relation with OpeningHours entity
-    //  */
-    // public function openingHours() {
-    //     return $this->hasMany('App\OpeningHours');
-    // }
+    /*
+     * Create one to many relation with CartStatus entity
+     */
+    public function cartStatus() {
+        return $this->belongsTo('App\CartStatus');
+    }
 
     // /*
     //     Define accessor for address property

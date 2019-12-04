@@ -3,7 +3,10 @@
         <thead>
             <tr>
                 <th>
-                    Lp:
+                    Koszyk:
+                </th>
+                <th>
+                    Status:
                 </th>
             </tr>
         </thead>
@@ -12,8 +15,12 @@
                 <tr>
                     <td>
                         <a href="{{ route('cart.show', ['cart' => $cart->id]) }}">
-                            {{ $cart->ordinal_number }}
+                            Nr: {{ $cart->ordinal_number }}
                         </a>
+                    </td>
+                    <td>
+                           {{ $cart->cartStatus->name }}
+                        
                     </td>
                 </tr>
             @empty
