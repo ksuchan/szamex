@@ -13,5 +13,14 @@ class CartElements extends Model
     protected $attributes = [
         'amount', 'price'
     ];
+    public function cartStatus() {
+        return $this->belongsTo('App\CartStatusElement');
+    }
 
+    /*
+     * Create one to many relation with CartStatus entity
+     */
+    public function cart() {
+        return $this->belongsTo('App\Cart');
+    }
 }

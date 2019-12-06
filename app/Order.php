@@ -14,5 +14,7 @@ class Order extends Model
         'order_code', 'total_price', 'delivery_price', 'order_price', 'discount_price', 'delivery_time', 'delivery_address', 'delivery_city'
     );
 
-
+    public function orderStatus() {
+        return $this->belongsTo('App\OrderStatus');
+    }
 }

@@ -41,6 +41,8 @@ Route::get('carts', function(){
 Route::get('carts/list', function(){
     return view('cart/list');
 })->name('carts.list');
+Route::get('/cart/add', 'Cart\CartController@addCart')->name('cart.add');
+Route::get('/cart/remove', 'Cart\CartController@removeCart')->name('cart.remove');
 
 
 Route::get('/admin/users', 'Admin\UsersController@list')->name('users.list');

@@ -1,4 +1,6 @@
 <section>
+        <a href="{{ route('cart.add') }}">Dodaj nowy</a>
+
     <table cellpadding="10">
         <thead>
             <tr>
@@ -7,6 +9,9 @@
                 </th>
                 <th>
                     Status:
+                </th>
+                <th>
+                    Akcja:
                 </th>
             </tr>
         </thead>
@@ -21,6 +26,9 @@
                     <td>
                            {{ $cart->cartStatus->name }}
                         
+                    </td>
+                    <td>
+                        <a href="{{ route('cart.remove', ['cart' => $cart->id]) }}">Usuń</a>
                     </td>
                 </tr>
             @empty

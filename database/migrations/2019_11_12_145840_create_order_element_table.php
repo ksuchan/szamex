@@ -20,7 +20,7 @@ class CreateOrderElementTable extends Migration
             $table->bigInteger('order_id')->foreign('order_id')->references('id')->on('order');
             $table->bigInteger('cart_element_id')->foreign('cart_element_id')->references('id')->on('cart_element');
             $table->bigInteger('restaurant_id')->foreign('restaurant_id')->references('id')->on('restaurant');
-            $table->bigInteger('product_id')->foreign('product_id')->references('id')->on('product');
+            $table->bigInteger('dish_id')->foreign('dish_id')->references('id')->on('dish');
             $table->float('price');
             $table->float('discount_price');
             $table->float('amount');

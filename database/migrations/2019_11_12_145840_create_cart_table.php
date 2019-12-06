@@ -18,7 +18,6 @@ class CreateCartTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->foreign('user_id')->references('id')->on('users');
             $table->bigInteger('ordinal_number');
-            $table->bigInteger('product_id')->foreign('product_id')->references('id')->on('product');
             $table->bigInteger('cart_status_id')->foreign('cart_status_id')->references('id')->on('cart_status');
         });
 		

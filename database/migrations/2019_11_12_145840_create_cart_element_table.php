@@ -18,7 +18,7 @@ class CreateCartElementTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('restaurant_id')->foreign('restaurant_id')->references('id')->on('restaurants');
             $table->bigInteger('cart_id')->foreign('cart_id')->references('id')->on('cart');
-            $table->bigInteger('product_id')->foreign('product_id')->references('id')->on('product');
+            $table->bigInteger('dish_id')->foreign('dish_id')->references('id')->on('dish');
             $table->bigInteger('cart_element_status_id')->foreign('cart_element_status_id')->references('id')->on('cart_element_status');
             $table->float('amount');
             $table->float('price');
