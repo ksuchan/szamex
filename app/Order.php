@@ -17,4 +17,13 @@ class Order extends Model
     public function orderStatus() {
         return $this->belongsTo('App\OrderStatus');
     }
+    public function restaurant() {
+        return $this->belongsTo('App\Restaurant');
+    }
+    public function cart() {
+        return $this->belongsTo('App\Cart');
+    }
+    public function supplier() {
+        return $this->belongsTo('App\Supplier');
+    }
 }

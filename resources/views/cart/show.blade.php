@@ -41,7 +41,7 @@
                              {{ $cartElement->dishes_id }}                        
                     </td>
                     <td>
-                             {{ $cartElement->dish}}                        
+                             Wystąpił błąd poczad wyświetlania nazwy dania{{-- {{ $cartElement->dish->name}}                         --}}
                     </td>
                     <td>
                             {{ $cartElement->restaurant_id }} 
@@ -61,6 +61,10 @@
                     </td>
                     <td>
                         <a href="{{ route('cartElement.remove', ['cartElement' => $cartElement->id]) }}">Usuń</a>
+                        <br>
+                        <a href="{{ route('cartElement.addAmount', ['cartElement' => $cartElement->id]) }}">+</a>
+                        <br>
+                        <a href="{{ route('cartElement.removeAmount', ['cartElement' => $cartElement->id]) }}">-</a>
                     </td>
                 </tr>
             @empty

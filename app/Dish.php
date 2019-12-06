@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Dish extends Model
 {
     use SoftDeletes;
-    
+
     protected $attributes = array(
-        'name', 
+        'name'
     );
 
     /*

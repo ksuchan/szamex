@@ -17,7 +17,7 @@ class Cart extends Model
      * Create one to many relation with Dish entity
      */
     public function cartElements() {
-        return $this->hasMany('App\CartElements');
+        return $this->hasMany('App\CartElement');
     }
 
     /*
