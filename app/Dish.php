@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Dish extends Model
 {
     use SoftDeletes;
+    
+    protected $attributes = array(
+        'name', 
+    );
 
     /*
      * Defining the inverse of the relation between this entity and the restaurant entity

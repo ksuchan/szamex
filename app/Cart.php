@@ -27,6 +27,8 @@ class Cart extends Model
         return $this->belongsTo('App\CartStatus');
     }
 
+    
+    
     // /*
     //     Define accessor for address property
     // */

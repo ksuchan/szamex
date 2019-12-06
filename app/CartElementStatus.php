@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
-class CartStatusElement extends Model
+class CartElementStatus extends Model
 {
     use SoftDeletes;
 

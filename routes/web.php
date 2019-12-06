@@ -33,16 +33,19 @@ Route::get('restaurants/list', function(){
 Route::resource('restaurant', 'RestaurantController');
 Route::resource('order', 'OrderController');
 Route::resource('cart', 'CartController');
+Route::resource('cartElement', 'CartElementController');
 
-Route::get('carts', function(){
-    return view('cart/search');
-})->name('carts.search');
+Route::resource('dish', 'DishController');
 
-Route::get('carts/list', function(){
-    return view('cart/list');
-})->name('carts.list');
+// Czy mi to jest potrzebne? xD
+// Route::get('carts', function(){   return view('cart/search');})->name('carts.search');
+
+// Route::get('carts/list', function(){return view('cart/list');})->name('carts.list');
+
 Route::get('/cart/add', 'Cart\CartController@addCart')->name('cart.add');
 Route::get('/cart/remove', 'Cart\CartController@removeCart')->name('cart.remove');
+Route::get('/cartElement/add', 'CartElement\CartElementController@addCartElement')->name('cartElement.add');
+Route::get('/cartElement/remove', 'CartElement\CartElementController@removeCartElement')->name('cartElement.remove');
 
 
 Route::get('/admin/users', 'Admin\UsersController@list')->name('users.list');

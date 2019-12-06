@@ -11,10 +11,10 @@ class CartElements extends Model
     use SoftDeletes;
 
     protected $attributes = [
-        'amount', 'price'
+        'amount', 'price', 'restaurant_id', 'dishes_id', 'dish'
     ];
-    public function cartStatus() {
-        return $this->belongsTo('App\CartStatusElement');
+    public function cartElementStatus() {
+        return $this->belongsTo('App\CartElementStatus');
     }
 
     /*
@@ -22,5 +22,11 @@ class CartElements extends Model
      */
     public function cart() {
         return $this->belongsTo('App\Cart');
+    }
+    public function dish() {
+        return $this->belongsTo('App\Dish');
+    }
+    public function restaurant() {
+        return $this->belongsTo('App\Restaurant');
     }
 }
