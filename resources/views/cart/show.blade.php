@@ -62,9 +62,9 @@
                     <td>
                         <a href="{{ route('cartElement.remove', ['cartElement' => $cartElement->id]) }}">Usuń</a>
                         <br>
-                        <a href="{{ route('cartElement.addAmount', ['cartElement' => $cartElement->id]) }}">+</a>
+                        <a href="{{ route('cartElement.addAmount', ['cartElement' => $cartElement]) }}">+</a>
                         <br>
-                        <a href="{{ route('cartElement.removeAmount', ['cartElement' => $cartElement->id]) }}">-</a>
+                        <a href="{{ route('cartElement.removeAmount', ['cartElement' => $cartElement]) }}">-</a>
                     </td>
                 </tr>
             @empty

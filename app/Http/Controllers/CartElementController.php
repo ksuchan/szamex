@@ -54,13 +54,20 @@ class CartElementController extends Controller
     // Dodanie ilosci
     public function addAmount(CartElement $cartElement)
     {
-        //
+        $cartElement->amount = $cartElement->amount+1;
+        $cartElement->save();
+
+        //return view('cart.index');
     }
 
     // usuniecie ilosci
     public function removeAmount(CartElement $cartElement)
     {
-        //
+        //dd($cartElement);
+        $cartElement->amount = $cartElement->amount-1;
+        $cartElement->save();
+
+        //return view('cart.index');
     }
 
 }

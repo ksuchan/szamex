@@ -48,8 +48,8 @@ Route::get('/cart/remove', 'Cart\CartController@removeCart')->name('cart.remove'
 Route::get('/cartElement/add', 'CartElement\CartElementController@addCartElement')->name('cartElement.add');
 Route::get('/cartElement/remove', 'CartElement\CartElementController@removeCartElement')->name('cartElement.remove');
 
-Route::get('/cartElement/addAmount', 'CartElement\CartElementController@addAmount')->name('cartElement.addAmount');
-Route::get('/cartElement/removeAmount', 'CartElement\CartElementController@removeAmount')->name('cartElement.removeAmount');
+Route::get('/cartElement/addAmount/{cartElement}', 'CartElementController@addAmount')->name('cartElement.addAmount');
+Route::get('/cartElement/removeAmount/{cartElement}', 'CartElementController@removeAmount')->name('cartElement.removeAmount');
 
 Route::get('/admin/users', 'Admin\UsersController@list')->name('users.list');
 Route::get('/admin/users/add', 'Admin\UsersController@addUser')->name('users.add');
