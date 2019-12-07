@@ -35,8 +35,8 @@ Route::get('restaurants/sample', function(){
 });
 
 Route::resource('restaurant', 'RestaurantController');
-Route::get('order', 'OrderController@index')->name('order.index');
-Route::get('cart', 'CartController@index')->name('cart.index');
+Route::resource('order', 'OrderController');
+Route::resource('cart', 'CartController');
 Route::resource('cartElement', 'CartElementController');
 
 Route::resource('dish', 'DishController');
