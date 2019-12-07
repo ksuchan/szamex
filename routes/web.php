@@ -29,6 +29,10 @@ Route::get('restaurants/list', function(){
     return view('restaurant/list');
 })->name('restaurants.list');
 
+Route::get('restaurants/sample', function(){
+    return view('restaurant/single');
+});
+
 Route::resource('restaurant', 'RestaurantController');
 
 Route::get('/admin/users', 'Admin\UsersController@list')->name('users.list');
