@@ -21,6 +21,7 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
+
 Route::get('restaurants', function(){
     return view('restaurant/search');
 })->name('restaurants.search');
@@ -34,6 +35,25 @@ Route::get('restaurants/sample', function(){
 });
 
 Route::resource('restaurant', 'RestaurantController');
+Route::resource('order', 'OrderController');
+Route::resource('cart', 'CartController');
+Route::resource('cartElement', 'CartElementController');
+
+Route::resource('dish', 'DishController');
+
+// Czy mi to jest potrzebne? xD
+// Route::get('carts', function(){   return view('cart/search');})->name('carts.search');
+
+// Route::get('carts/list', function(){return view('cart/list');})->name('carts.list');
+
+Route::get('/cart/add', 'Cart\CartController@addCart')->name('cart.add');
+Route::get('/cart/remove', 'Cart\CartController@removeCart')->name('cart.remove');
+
+Route::get('/cartElement/add/{cartElement}', 'CartElement\CartElementController@addCartElement')->name('cartElement.add');
+Route::get('/cartElement/remove/{cartElement}', 'CartElementController@remove')->name('cartElement.remove');
+
+Route::get('/cartElement/addAmount/{cartElement}', 'CartElementController@addAmount')->name('cartElement.addAmount');
+Route::get('/cartElement/removeAmount/{cartElement}', 'CartElementController@removeAmount')->name('cartElement.removeAmount');
 
 Route::get('/admin/users', 'Admin\UsersController@list')->name('users.list');
 Route::get('/admin/users/add', 'Admin\UsersController@addUser')->name('users.add');

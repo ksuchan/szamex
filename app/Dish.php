@@ -9,6 +9,10 @@ class Dish extends Model
 {
     use SoftDeletes;
 
+    protected $attributes = array(
+        'name'
+    );
+
     /*
      * Defining the inverse of the relation between this entity and the restaurant entity
      * This is a one to may relation
