@@ -32,7 +32,8 @@ class CartElementController extends Controller
     // Usuwanie koszyka
     public function remove(CartElement $cartElement)
     {
-        return view('cartElement.remove');
+        $cartElement->delete();
+        $cartElement->save();
     }
 
     /**
@@ -63,7 +64,6 @@ class CartElementController extends Controller
     // usuniecie ilosci
     public function removeAmount(CartElement $cartElement)
     {
-        //dd($cartElement);
         $cartElement->amount = $cartElement->amount-1;
         $cartElement->save();
 

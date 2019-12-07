@@ -60,7 +60,7 @@
                             {{ $cartElement->cartElementStatus->name }}
                     </td>
                     <td>
-                        <a href="{{ route('cartElement.remove', ['cartElement' => $cartElement->id]) }}">Usuń</a>
+                        <a href="{{ route('cartElement.remove', ['cartElement' => $cartElement]) }}">Usuń</a>
                         <br>
                         <a href="{{ route('cartElement.addAmount', ['cartElement' => $cartElement]) }}">+</a>
                         <br>
