@@ -32,10 +32,10 @@
                             <a class="button" href="{{ route('restaurants.search') }}">Wybierz restaurację</a>
                         </li>
                         <li>
-                            <a class="button" href="#">Zamówienia</a>
+                            <a class="button" href="{{ route('order.index') }}">Zamówienia</a>
                         </li>
                         <li>
-                            <a class="button" href="#">Koszyk</a>
+                            <a class="button" href="{{ route('cart.index') }}">Koszyk</a>
                         </li>
                         <li>
                             @guest
