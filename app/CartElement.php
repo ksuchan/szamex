@@ -10,9 +10,9 @@ class CartElement extends Model
 {
     use SoftDeletes;
 
-    protected $attributes = [
-        'amount', 'price', 'restaurant_id', 'dishes_id', 'dish'
-    ];
+    // protected $attributes = [
+    //     'amount', 'price', 'restaurant_id', 'dishes_id', 'dish'
+    // ];
     public function cartElementStatus() {
         return $this->belongsTo('App\CartElementStatus');
     }

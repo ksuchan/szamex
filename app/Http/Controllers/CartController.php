@@ -40,6 +40,7 @@ class CartController extends Controller
     // Usuwanie koszyka
     public function remove(Cart $cart)
     {
-        return view('cart.remove');
+        $cart->delete();
+        $cart->save();
     }
 }

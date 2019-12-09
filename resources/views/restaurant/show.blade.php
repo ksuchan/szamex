@@ -15,6 +15,7 @@
             <small>{{ $dish->ingredients }}</small>
             <br>
             <div class="price">{{ $dish->price  }} pln</div>
+            <a href="{{ route('cartElement.create', ['dish' => $dish]) }}">Dodaj do koszyka</a>
         </li>
     @endforeach
 </ul>

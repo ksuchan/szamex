@@ -47,11 +47,12 @@ Route::resource('dish', 'DishController');
 // Route::get('carts/list', function(){return view('cart/list');})->name('carts.list');
 
 Route::get('/cart/add', 'Cart\CartController@addCart')->name('cart.add');
-Route::get('/cart/remove', 'Cart\CartController@removeCart')->name('cart.remove');
+Route::get('/cart/remove/{cart}', 'CartController@remove')->name('cart.remove');
 
-Route::get('/cartElement/add/{cartElement}', 'CartElement\CartElementController@addCartElement')->name('cartElement.add');
+//Route::get('/cartElement/add/{cartElement}', 'CartElement\CartElementController@addCartElement')->name('cartElement.add');
 Route::get('/cartElement/remove/{cartElement}', 'CartElementController@remove')->name('cartElement.remove');
 
+Route::get('/cartElement/create/{dish}', 'CartElementController@create')->name('cartElement.create');
 Route::get('/cartElement/addAmount/{cartElement}', 'CartElementController@addAmount')->name('cartElement.addAmount');
 Route::get('/cartElement/removeAmount/{cartElement}', 'CartElementController@removeAmount')->name('cartElement.removeAmount');
 

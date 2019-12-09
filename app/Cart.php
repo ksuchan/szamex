@@ -26,7 +26,6 @@ class Cart extends Model
     public function cartStatus() {
         return $this->belongsTo('App\CartStatus');
     }
-
     
     
     // /*

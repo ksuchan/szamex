@@ -28,7 +28,7 @@
                         
                     </td>
                     <td>
-                        <a href="{{ route('cart.remove', ['cart' => $cart->id]) }}">Usuń</a>
+                        <a href="{{ route('cart.remove', ['cart' => $cart]) }}">Usuń</a>
                     </td>
                 </tr>
             @empty
