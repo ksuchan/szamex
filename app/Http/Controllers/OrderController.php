@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\Cart;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -19,14 +20,9 @@ class OrderController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function realizeOrder(Cart $cart)
     {
-        //
+        
     }
 
     /**

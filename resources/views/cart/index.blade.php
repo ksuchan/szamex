@@ -1,5 +1,5 @@
 <section>
-        <a href="{{ route('cart.add') }}">Dodaj nowy</a>
+        <a href="{{ route('cart.create') }}">Dodaj nowy</a>
 
     <table cellpadding="10">
         <thead>

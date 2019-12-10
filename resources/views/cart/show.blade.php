@@ -76,3 +76,9 @@
             @endforelse
         </tbody>
     </table>
+
+
+    <br>
+    <br>
+    <br>
+    <a href="{{ route('order.realizeOrder', ['cart' => $cart]) }}">Realizuj zamówienie!</a>

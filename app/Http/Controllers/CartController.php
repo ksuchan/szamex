@@ -21,6 +21,17 @@ class CartController extends Controller
         return view('cart.add');
     }
 
+    // Tworzenie nowego koszyka
+    public function create()
+    {       
+        
+        $cartDb = Cart::orderBy('id', 'desc')->first();
+        $cart = new Cart;
+        $cart->user_id = 1;
+        $cart->ordinal_number = $cartDb->ordinal_number+1;
+        $cart->cart_status_id = 1;
+        $cart->Save();
+    }
     
     // Szczegoly koszyka
     public function show(Cart $cart)

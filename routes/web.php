@@ -46,7 +46,8 @@ Route::resource('dish', 'DishController');
 
 // Route::get('carts/list', function(){return view('cart/list');})->name('carts.list');
 
-Route::get('/cart/add', 'Cart\CartController@addCart')->name('cart.add');
+Route::get('/cart/add/{cart}', 'CartController@add')->name('cart.add');
+Route::get('/cart/create/', 'CartController@create')->name('cart.create');
 Route::get('/cart/remove/{cart}', 'CartController@remove')->name('cart.remove');
 
 //Route::get('/cartElement/add/{cartElement}', 'CartElement\CartElementController@addCartElement')->name('cartElement.add');
@@ -55,6 +56,9 @@ Route::get('/cartElement/remove/{cartElement}', 'CartElementController@remove')-
 Route::get('/cartElement/create/{dish}', 'CartElementController@create')->name('cartElement.create');
 Route::get('/cartElement/addAmount/{cartElement}', 'CartElementController@addAmount')->name('cartElement.addAmount');
 Route::get('/cartElement/removeAmount/{cartElement}', 'CartElementController@removeAmount')->name('cartElement.removeAmount');
+
+
+Route::get('/order/realizeOrder/{cart}', 'OrderController@realizeOrder')->name('order.realizeOrder');
 
 Route::get('/admin/users', 'Admin\UsersController@list')->name('users.list');
 Route::get('/admin/users/add', 'Admin\UsersController@addUser')->name('users.add');
