@@ -21,6 +21,7 @@
                         <label>Wybierz kuchnię</label>
                         <div class="select-wrapper">
                             <select>
+                                <option>Wszystkie</option>
                                 <option>Włoska</option>
                                 <option>Grecka</option>
                                 <option>Śląska</option>
