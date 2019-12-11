@@ -34,6 +34,10 @@ Route::get('restaurants/sample', function(){
     return view('restaurant/single');
 });
 
+Route::get('cart/sample', function(){
+    return view('cart');
+});
+
 Route::resource('restaurant', 'RestaurantController');
 Route::resource('order', 'OrderController');
 Route::resource('cart', 'CartController');
