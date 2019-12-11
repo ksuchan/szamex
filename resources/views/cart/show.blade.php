@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <a href="{{ route('cart.index') }}">Powrót do listy koszyków</a>
 
 
@@ -82,3 +86,6 @@
     <br>
     <br>
     <a href="{{ route('order.realizeOrder', ['cart' => $cart]) }}">Realizuj zamówienie!</a>
+
+    @endsection
+

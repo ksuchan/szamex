@@ -1,4 +1,6 @@
+@extends('layouts.app')
 
+@section('content')
 {{-- action="{{ url('createOrder') }}" --}}
 {{-- route('cart.show', ['cart' => $cart->id]) --}}
 <form  action="{{ route('order.createOrder', ['cart' => $cart]) }}" method="post" accept-charset="utf-8">
@@ -53,3 +55,6 @@
        </div>
     </div>
  </form>
+
+ 
+@endsection

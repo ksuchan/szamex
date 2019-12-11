@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <section>
         <a href="{{ route('cart.create') }}">Dodaj nowy</a>
 
@@ -41,3 +45,5 @@
         </tbody>
     </table>
 </section>
+
+@endsection
