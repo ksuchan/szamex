@@ -5,7 +5,7 @@
 <a href="{{ route('cart.index') }}">Powrót do listy koszyków</a>
 
 
-<h2>Koszyk o numerze: {{ $cart->ordinal_number  }}</h2>
+{{-- <h2>Koszyk o numerze: {{ $cart->ordinal_number  }}</h2> --}}
 
 
 

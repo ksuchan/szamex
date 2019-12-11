@@ -24,7 +24,9 @@
         <div class="container">
             <header>
                 <div class="logo">
-                    <img src="{{ asset('images/logo.png') }}" />
+                    <a href="/">
+                        <img src="{{ asset('images/logo.png') }}" />
+                    </a>
                 </div>
                 <nav>
                     <ul>
