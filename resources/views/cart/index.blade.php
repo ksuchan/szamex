@@ -1,5 +1,5 @@
 <section>
-        <a href="{{ route('cart.add') }}">Dodaj nowy</a>
+        <a href="{{ route('cart.create') }}">Dodaj nowy</a>
 
     <table cellpadding="10">
         <thead>
@@ -28,7 +28,7 @@
                         
                     </td>
                     <td>
-                        <a href="{{ route('cart.remove', ['cart' => $cart->id]) }}">Usuń</a>
+                        <a href="{{ route('cart.remove', ['cart' => $cart]) }}">Usuń</a>
                     </td>
                 </tr>
             @empty

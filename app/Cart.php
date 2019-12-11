@@ -9,9 +9,9 @@ class Cart extends Model
 {
     use SoftDeletes;
 
-    protected $attributes = array(
-        'ordinal_number', 
-    );
+    // protected $attributes = array(
+    //     'ordinal_number', 
+    // );
 
     /*
      * Create one to many relation with Dish entity
@@ -26,7 +26,6 @@ class Cart extends Model
     public function cartStatus() {
         return $this->belongsTo('App\CartStatus');
     }
-
     
     
     // /*
