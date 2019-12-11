@@ -57,8 +57,9 @@ Route::get('/cartElement/create/{dish}', 'CartElementController@create')->name('
 Route::get('/cartElement/addAmount/{cartElement}', 'CartElementController@addAmount')->name('cartElement.addAmount');
 Route::get('/cartElement/removeAmount/{cartElement}', 'CartElementController@removeAmount')->name('cartElement.removeAmount');
 
-
 Route::get('/order/realizeOrder/{cart}', 'OrderController@realizeOrder')->name('order.realizeOrder');
+Route::get('/order/create/{cart}', 'OrderController@create')->name('order.create');
+Route::post('/createOrder/{cart}', 'OrderController@createOrder')->name('order.createOrder');;
 
 Route::get('/admin/users', 'Admin\UsersController@list')->name('users.list');
 Route::get('/admin/users/add', 'Admin\UsersController@addUser')->name('users.add');

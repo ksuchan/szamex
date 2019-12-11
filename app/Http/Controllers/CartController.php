@@ -23,8 +23,7 @@ class CartController extends Controller
 
     // Tworzenie nowego koszyka
     public function create()
-    {       
-        
+    {               
         $cartDb = Cart::orderBy('id', 'desc')->first();
         $cart = new Cart;
         $cart->user_id = 1;
@@ -40,12 +39,6 @@ class CartController extends Controller
             'cart' => $cart->load(['cartStatus', 'cartElements'])
         ]);
         
-    }
-
-    // Aktualizacja koszyka
-    public function update(Request $request, Cart $cart)
-    {
-        //
     }
 
     // Usuwanie koszyka

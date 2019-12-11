@@ -9,11 +9,7 @@ use Illuminate\Http\Request;
 
 class CartElementController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         return view('cartElement.index', [
@@ -43,22 +39,6 @@ class CartElementController extends Controller
     {
         $cartElement->delete();
         $cartElement->save();
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\CartElement  $cartElement
-     * @return \Illuminate\Http\Response
-     */
-    public function show(CartElement $cartElement)
-    {
-        //
-    }
-    // Edycja
-    public function edit(CartElement $cartElement)
-    {
-        //
     }
 
     // Dodanie ilosci
