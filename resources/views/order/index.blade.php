@@ -1,4 +1,6 @@
+@extends('layouts.app')
 
+@section('content')
 <table cellpadding="10">
     <thead>
         <tr>
@@ -55,3 +57,5 @@
         @endforelse
     </tbody>
 </table>
+
+@endsection
