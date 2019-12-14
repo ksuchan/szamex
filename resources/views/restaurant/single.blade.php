@@ -17,62 +17,19 @@
                             <div class="description">Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</div>
                         </div>
                         <div class="flex-wrapper">
+                        @for ($c = 0; $c < 2; $c++)
                         <div class="flex-item menu-category">
-                                <div class="menu-category-title">Pizza</div>
-                                <div class="menu-item">
-                                    <div class="title">Mexicana</div>
-                                    <div class="components">Donec velit neque, auctor sit amet aliquam vel ullamcorper sit amet ligula</div>
-                                    <div class="price">19 zł</div>
-                                </div>
-                                <div class="menu-item">
-                                    <div class="title">Mexicana</div>
-                                    <div class="components">Donec velit neque, auctor sit amet aliquam vel ullamcorper sit amet ligula</div>
-                                    <div class="price">19 zł</div>
-                                </div>
-                                <div class="menu-item">
-                                    <div class="title">Mexicana</div>
-                                    <div class="components">Donec velit neque, auctor sit amet aliquam vel ullamcorper sit amet ligula</div>
-                                    <div class="price">19 zł</div>
-                                </div>
-                                <div class="menu-item">
-                                    <div class="title">Mexicana</div>
-                                    <div class="components">Donec velit neque, auctor sit amet aliquam vel ullamcorper sit amet ligula</div>
-                                    <div class="price">19 zł</div>
-                                </div>
-                                <div class="menu-item">
-                                    <div class="title">Mexicana</div>
-                                    <div class="components">Donec velit neque, auctor sit amet aliquam vel ullamcorper sit amet ligula</div>
-                                    <div class="price">19 zł</div>
-                                </div>
+                            <div class="menu-category-title">Pizza</div>
+                            @for ($i = 0; $i < 5; $i++)
+                            <div class="menu-item">
+                                <div class="title">Mexicana</div>
+                                <div class="components">Donec velit neque, auctor sit amet aliquam vel ullamcorper sit amet ligula</div>
+                                <div class="add-to-cart"><a href="#" class="order-button">Zamów</a></div>
+                                <div class="price">19 zł</div>
                             </div>
-                            <div class="flex-item menu-category">
-                                <div class="menu-category-title">Pizza</div>
-                                <div class="menu-item">
-                                    <div class="title">Mexicana</div>
-                                    <div class="components">Donec velit neque, auctor sit amet aliquam vel ullamcorper sit amet ligula</div>
-                                    <div class="price">19 zł</div>
-                                </div>
-                                <div class="menu-item">
-                                    <div class="title">Mexicana</div>
-                                    <div class="components">Donec velit neque, auctor sit amet aliquam vel ullamcorper sit amet ligula</div>
-                                    <div class="price">19 zł</div>
-                                </div>
-                                <div class="menu-item">
-                                    <div class="title">Mexicana</div>
-                                    <div class="components">Donec velit neque, auctor sit amet aliquam vel ullamcorper sit amet ligula</div>
-                                    <div class="price">19 zł</div>
-                                </div>
-                                <div class="menu-item">
-                                    <div class="title">Mexicana</div>
-                                    <div class="components">Donec velit neque, auctor sit amet aliquam vel ullamcorper sit amet ligula</div>
-                                    <div class="price">19 zł</div>
-                                </div>
-                                <div class="menu-item">
-                                    <div class="title">Mexicana</div>
-                                    <div class="components">Donec velit neque, auctor sit amet aliquam vel ullamcorper sit amet ligula</div>
-                                    <div class="price">19 zł</div>
-                                </div>
-                            </div>
+                            @endfor
+                        </div>
+                        @endfor
                         </div>
                     </div>
                 </div>
