@@ -15,7 +15,7 @@
                             <img src="https://placekeanu.com/420/237" />
                         </div>
                         <div class="rating">4.5</div>
-                        <div class="choose"><a href="#">Wybieram</a></div>
+                        <div class="choose"><a href="{{ route('restaurants.sample') }}">Wybieram</a></div>
                     </div>
                     <div class="content">
                         <div class="title">{{ $restaurant }}</div>

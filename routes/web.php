@@ -32,7 +32,7 @@ Route::get('restaurants/list', function(){
 
 Route::get('restaurants/sample', function(){
     return view('restaurant/single');
-});
+})->name('restaurants.sample');
 
 Route::get('cart/sample', function(){
     return view('cart');
