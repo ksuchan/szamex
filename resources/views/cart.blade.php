@@ -22,6 +22,7 @@
                 </tr>
             </thead>
             <tbody>
+                @for ($i = 0; $i < 5; $i++)
                 <tr>
                     <td>
                         <img src="http://placehold.it/116x87" />
@@ -30,6 +31,7 @@
                     <td>1 szt.</td>
                     <td>25,99 zł</td>
                 </tr>
+                @endfor
             </tbody>
             <tfoot>
                 <tr>

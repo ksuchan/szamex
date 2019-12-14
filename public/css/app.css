@@ -160,7 +160,7 @@ button,
   padding: 0 30px;
   font-weight: 400;
   font-family: "Nunito", sans-serif;
-  font-size: 24px;
+  font-size: 18px;
   border-radius: 32px;
   height: 64px;
   -webkit-box-align: center;
@@ -170,6 +170,13 @@ button,
   text-decoration: none;
   -webkit-transition: background-color 200ms;
   transition: background-color 200ms;
+}
+
+@media (min-width: 1300px) {
+  button,
+  .button {
+    font-size: 24px;
+  }
 }
 
 button:hover,
@@ -430,6 +437,7 @@ header {
   -webkit-box-pack: justify;
           justify-content: space-between;
   margin-bottom: 50px;
+  overflow: hidden;
 }
 
 header nav {
@@ -437,9 +445,11 @@ header nav {
 }
 
 header nav ul {
+  padding: 0;
   display: -webkit-box;
   display: flex;
   list-style-type: none;
+  flex-wrap: wrap;
   margin: -50px;
 }
 

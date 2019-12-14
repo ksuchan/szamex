@@ -2,11 +2,14 @@ header {
     display: flex;
     justify-content: space-between;
     margin-bottom: 50px;
+    overflow: hidden;
     nav {
         align-self: center;
         ul {
+            padding: 0;
             display: flex;
             list-style-type: none;
+            flex-wrap: wrap;
             margin: -50px;
             li {
                 padding: 50px;

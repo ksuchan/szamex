@@ -47,7 +47,7 @@ button,
     padding: 0 30px;
     font-weight: 400;
     font-family: $fontFamily;
-    font-size: 24px;
+    font-size: 18px;
     border-radius: 32px;
     height: 64px;
     align-items: center;
@@ -55,6 +55,9 @@ button,
     color: white;
     text-decoration: none;
     transition: background-color $animationDuration;
+    @media (min-width: 1300px){
+        font-size: 24px;
+    }
     &:hover {
         background: darken($primaryColor, 10%);
         text-decoration: none;

@@ -12,7 +12,7 @@
                 <div class="restaurant-teaser">
                     <div class="image">
                         <div class="media">
-                            <img src="{{ asset('images/420x237.png') }}" />
+                            <img src="https://placekeanu.com/420/237" />
                         </div>
                         <div class="rating">4.5</div>
                         <div class="choose"><a href="#">Wybieram</a></div>
