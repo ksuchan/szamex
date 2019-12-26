@@ -31,6 +31,9 @@ class CartElementController extends Controller
         $cartElement->cart_id = $cart->id;
 
         $cartElement->save();
+        $cart = Cart::where('Id', $cartElement->cart_id)->first();
+
+        return view('cart.show', ['cart' => $cart]);
     }
 
 
@@ -39,24 +42,39 @@ class CartElementController extends Controller
     {
         $cartElement->delete();
         $cartElement->save();
+        
+        $cart = Cart::where('Id', $cartElement->cart_id)->first();
+
+        return view('cart.show', ['cart' => $cart]);
+        //return view('cartElement.remove');
     }
 
     // Dodanie ilosci
     public function addAmount(CartElement $cartElement)
     {
         $cartElement->amount = $cartElement->amount+1;
+        $cartElement->price = $cartElement->price+$cartElement->price;
         $cartElement->save();
 
-        //return view('cart.index');
+        $cart = Cart::where('Id', $cartElement->cart_id)->first();
+
+        return view('cart.show', ['cart' => $cart]);
     }
 
     // usuniecie ilosci
     public function removeAmount(CartElement $cartElement)
     {
+        $cart = Cart::where('Id', $cartElement->cart_id)->first();
+        if (($cartElement->amount-1) <= 0)
+        {            
+            return view('cart.show', ['cart' => $cart]);
+        }
         $cartElement->amount = $cartElement->amount-1;
+        $cartElement->price = $cartElement->price - $cartElement->price;
         $cartElement->save();
 
-        //return view('cart.index');
+
+        return view('cart.show', ['cart' => $cart]);
     }
 
 }

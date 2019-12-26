@@ -49,6 +49,8 @@ class OrderController extends Controller
         $phoneNumber = $request->input('phoneNumber');
         $city = $request->input('city');
 
+//$user = Auth::user();
+
         $cartDb = Cart::find($cart->id);
 
         $cartElement_group_by_restaurant = $cartDb->cartElements->groupBy('restaurant_id');

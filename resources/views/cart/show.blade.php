@@ -45,7 +45,7 @@
                              {{ $cartElement->dishes_id }}                        
                     </td>
                     <td>
-                             Wystąpił błąd poczad wyświetlania nazwy dania{{-- {{ $cartElement->dish->name}}                         --}}
+                              {{ $cartElement->dish}}                  
                     </td>
                     <td>
                             {{ $cartElement->restaurant_id }} 

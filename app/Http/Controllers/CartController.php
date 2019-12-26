@@ -24,20 +24,29 @@ class CartController extends Controller
 
     // Tworzenie nowego koszyka
     public function create()
-    {               
+    {              
+        $user = auth()->user(); 
         $cartDb = Cart::orderBy('id', 'desc')->first();
+        $ordinal_number = 0;
+        if ($cartDb != null)
+            $ordinal_number = $cartDb->ordinal_number;
+
         $cart = new Cart;
-        $cart->user_id = 1;
-        $cart->ordinal_number = $cartDb->ordinal_number+1;
+        $cart->user_id = $user->id;
+        $cart->ordinal_number = $ordinal_number+1;
         $cart->cart_status_id = 1;
         $cart->Save();
+
+        return view('cart.show', [
+            'cart' => $cart->load(['cartStatus', 'cartElements', 'cartElements.dish'])
+        ]);
     }
     
     // Szczegoly koszyka
     public function show(Cart $cart)
     {
         return view('cart.show', [
-            'cart' => $cart->load(['cartStatus', 'cartElements'])
+            'cart' => $cart->load(['cartStatus', 'cartElements', 'cartElements.dish'])
         ]);
         
     }
@@ -47,5 +56,7 @@ class CartController extends Controller
     {
         $cart->delete();
         $cart->save();
+        
+        return view('cart.remove');
     }
 }
