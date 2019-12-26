@@ -13,7 +13,9 @@ class Order extends Model
     // protected $attributes = array(
     //     'order_code', 'total_price', 'delivery_price', 'order_price', 'discount_price', 'delivery_time', 'delivery_address', 'delivery_city'
     // );
-
+    public function orderElements() {
+        return $this->hasMany('App\OrderElement');
+    }
     public function orderStatus() {
         return $this->belongsTo('App\OrderStatus');
     }

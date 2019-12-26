@@ -1,34 +1,78 @@
+@extends('layouts.app')
+
+@section('content')
+
 <a href="{{ route('order.index') }}">Powrót do listy zamówień</a>
-<h1>{{ $order->id  }}</h1>
-<p>Zamówienia:</p>
-<ul>
-    @foreach($order->dishes as $dish)
-        <li>
-            <b>
-                {{ $dish->id  }}
-                <sup>
-                    {{ ( $dish->vegan ? 'Vegańskie' : '' ) }}
-                    {{ ( $dish->spicy ? 'Pikantne' : '' ) }}
-                    {{ ( $dish->gluten ? 'Bezglutenowe' : '' ) }}
-                </sup>
-            </b>
-			<br>
-            <small>{{ $dish->ingredients }}</small>
-            <br>
-            <div class="price">{{ $dish->price  }} pln</div>
-        </li>
-    @endforeach
-</ul>
-<p>Godziny otwarcia</p>
-<table>
-    @foreach( $order->openingHours as $h )
+<h1>Zamówienie o identyfikatorze: {{ $order->id  }}</h1>
+
+
+<table cellpadding="10">
+    <thead>
         <tr>
-            <td>
-                {{ $h->day }}
-            </td>
-            <td>
-                {{ $h->from . ' - ' . $h->to  }}
-            </td>
+            <th>
+                Identyfikator restauracji:
+            </th>
+            <th>
+                Restauracja:
+            </th>
+            <th>
+                Id dania:
+            </th>
+            <th>
+                Danie:
+            </th>
+            <th>
+                Koszt dania:
+            </th>
+            <th>
+                Ilość:
+            </th>
+            <th>
+                Udzielony rabat:
+            </th>
+            <th>
+                Status:
+            </th>
         </tr>
-    @endforeach
+    </thead>
+    <tbody>
+        @forelse($order->orderElements as $orderElement)
+            <tr>
+                <td>
+                         {{ $orderElement->restaurant_id }}                        
+                </td>
+                <td>
+                         {{ $orderElement->restaurant->name }}                        
+                </td>
+                <td>
+                          {{ $orderElement->dishes_id}}      
+                </td>
+                <td>
+                         {{ $orderElement->dish}}                        
+                </td>
+                <td>
+                        {{ $orderElement->price }}                     
+                </td>
+                <td>
+                        {{ $orderElement->price }}                     
+                </td>
+                <td>
+                        {{ $orderElement->discount_price }}                     
+                </td>
+                <td>
+                        {{ $orderElement->orderElementStatus->name }}                     
+                </td>
+                
+            </tr>
+        @empty
+            <tr>
+                <td>
+                    <p>Brak elementów w zamówieniu!</p>
+                </td>
+            </tr>
+        @endforelse
+    </tbody>
 </table>
+
+
+@endsection

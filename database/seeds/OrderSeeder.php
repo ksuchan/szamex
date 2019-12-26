@@ -13,7 +13,7 @@ class OrderSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('order')->insert([
+        DB::table('orders')->insert([
             'Id' => 1,
             'OrderCode' => 'kod zamówienia',
             'CartId' => 1,

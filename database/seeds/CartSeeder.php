@@ -13,25 +13,25 @@ class CartSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('cart')->insert([
+        DB::table('carts')->insert([
             'Id' => 1,
             'OrdinalNumber' => 1,
             'UserId' => 1,
             'CartStatusId' => 1
         ]);
-        DB::table('cart')->insert([
+        DB::table('carts')->insert([
             'Id' => 2,
             'OrdinalNumber' => 2,
             'UserId' => 1,
             'CartStatusId' => 1
         ]);
-        DB::table('cart')->insert([
+        DB::table('carts')->insert([
             'Id' => 3,
             'OrdinalNumber' => 3,
             'UserId' => 1,
             'CartStatusId' => 1
         ]);
-        DB::table('cart')->insert([
+        DB::table('carts')->insert([
             'Id' => 4,
             'OrdinalNumber' => 5,
             'UserId' => 2,

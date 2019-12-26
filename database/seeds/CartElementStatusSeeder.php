@@ -13,15 +13,15 @@ class CartElementStatusSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('cart_element_status')->insert([
+        DB::table('cart_element_statuses')->insert([
             'Id' => 1,
             'Name' => 'Nowy'
         ]);
-        DB::table('cart_element_status')->insert([
+        DB::table('cart_element_statuses')->insert([
             'Id' => 2,
             'Name' => 'Zrealizowany'
         ]);
-        DB::table('cart_element_status')->insert([
+        DB::table('cart_element_statuses')->insert([
             'Id' => 3,
             'Name' => 'Usunięty'
         ]);
