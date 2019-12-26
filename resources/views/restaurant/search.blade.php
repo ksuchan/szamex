@@ -4,7 +4,7 @@
     <div class="restaurant-selection">
         <div class="content">
             <div class="container">
-                <form class="form-restaurant-selection">
+                <form action="{{ route('restaurant.index')}}" method="get" class="form-restaurant-selection">
                     <div class="select-city">
                         <label>Wybierz miasto</label>
                         <div class="select-wrapper">

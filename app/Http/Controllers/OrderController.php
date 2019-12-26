@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Order;
 use App\Cart;
+use App\CartElement;
+use App\Order;
 use App\OrderElement;
 use Illuminate\Http\Request;
 
@@ -32,6 +33,10 @@ class OrderController extends Controller
         //dd($input);
 
         $user = auth()->user(); 
+        $userId = 0;
+        if ($user != null)
+            $userId = $user->id;
+
         if ($user == null)
         {            
             return view('cart.index', [
@@ -60,54 +65,65 @@ class OrderController extends Controller
 
         $cartDb = Cart::find($cart->id);
 
+        //dd($cartDb);
+
         $cartElement_group_by_restaurant = $cartDb->cartElements->groupBy('restaurant_id');
         
-        // ZAMÓWIENIE
-        $order = new Order;
-        $order->delivery_address = $address;
-        $order->phone_number = $phoneNumber;
-        $order->cart_id = $cart->id;
-        $order->order_code = $fullName;
-        $order->restaurant_id = 0;//$cartDb->restaurant_id;
-        $order->supplier_id = 0;
-        $order->user_id = $user->id;
-        $order->total_price = ($cartDb->cartElements->sum('price') + 9.99);
-        if ($delivery == 'Dostawa'){
-            $order->delivery_price = 9.99;
+        //dd($cartElement_group_by_restaurant);
+
+        foreach($cartElement_group_by_restaurant as $cartElement_group)
+        {            
+            $id = $cartElement_group->first()->id;
+            $cartElementDb = CartElement::find($id);
+
+            // ZAMÓWIENIE
+            $order = new Order;
+            $order->delivery_address = $address;
+            $order->phone_number = $phoneNumber;
+            $order->cart_id = $cart->id;
+            $order->order_code = $fullName;
+            $order->restaurant_id = $cartElementDb->restaurant_id;
+            $order->supplier_id = 0;
+            $order->user_id = $user->id;
+            $order->total_price = ($cartElement_group->sum('price') + 9.99);
+            if ($delivery == 'Dostawa'){
+                $order->delivery_price = 9.99;
+            }
+            else {
+                $order->delivery_price = 0;
+            }
+            $order->order_price = $cartElement_group->sum('price');
+            $order->discount_price = 0;
+            $order->delivery_time = $now;
+            $order->order_status_id = 1;
+            $order->delivery_city = $city;
+            $order->payment = $payment;
+            $order->delivery = $delivery;
+            
+            $order->Save();
+
+            foreach($cartElement_group as $cartElement)
+            {
+                $orderElement = new OrderElement;
+                $orderElement->order_id = $order->id;
+                $orderElement->cart_element_id = $cartElement->id;
+                $orderElement->restaurant_id = $cartElement->restaurant_id;
+                $orderElement->dishes_id = $cartElement->dishes_id;
+                $orderElement->price = $cartElement->price;
+                $orderElement->discount_price = 0;
+                $orderElement->amount = $cartElement->amount;
+                $orderElement->order_element_status_id = 1;
+                $orderElement->Save();
+            }
+            //$element = $cartElement_group->get();
+           // dd($cartElement_group);
         }
-        else {
-            $order->delivery_price = 0;
-        }
-        $order->order_price = $cartDb->cartElements->sum('price');
-        $order->discount_price = 0;
-        $order->delivery_time = $now;
-        $order->order_status_id = 1;
-        $order->delivery_city = $city;
-        $order->payment = $payment;
-        $order->delivery = $delivery;
         
-        $order->Save();
-
-        foreach ($cartDb->cartElements as $cartElement) 
-        {
-            $orderElement = new OrderElement;
-            $orderElement->order_id = $order->id;
-            $orderElement->cart_element_id = $cartElement->id;
-            $orderElement->restaurant_id = $cartElement->restaurant_id;
-            $orderElement->dishes_id = $cartElement->dishes_id;
-            $orderElement->price = $cartElement->price;
-            $orderElement->discount_price = 0;
-            $orderElement->amount = $cartElement->amount;
-            $orderElement->order_element_status_id = 1;
-            $orderElement->Save();
-        }
-
         $cart->cart_status_id = 2;
         $cart->Save();
 
-        return view('order.show', [
-            'order' => $order
-        ]);
+        return view('order.index', [
+            'orders' => Order::where('user_id',$userId)->get()   ]);
     }
 
     /**
