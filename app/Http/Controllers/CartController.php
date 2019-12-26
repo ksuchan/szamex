@@ -11,8 +11,12 @@ class CartController extends Controller
     // Wyswietlenie wszystkich koszykow
     public function index()
     {
+        $user = auth()->user(); 
+        $userId = 0;
+        if ($user != null)
+            $userId = $user->id;
         return view('cart.index', [
-            'carts' => Cart::with('cartStatus')->where('cart_status_id', '1')->get()
+            'carts' => Cart::with('cartStatus')->where('cart_status_id', '1')->where('user_id',$userId)->get()
         ]);
     }
 
@@ -26,10 +30,21 @@ class CartController extends Controller
     public function create()
     {              
         $user = auth()->user(); 
-        $cartDb = Cart::orderBy('id', 'desc')->first();
+        if ($user == null)
+        {            
+            return view('cart.index', [
+                'carts' => Cart::with('cartStatus')->where('cart_status_id', '1')->where('user_id',0)->get()]);
+        }
+
+        $cartDb = Cart::orderBy('id', 'desc')->where('cart_status_id', '1')->first();
         $ordinal_number = 0;
         if ($cartDb != null)
+        {
+            return view('cart.index', [
+                'carts' => Cart::with('cartStatus')->where('cart_status_id', '1')->get()
+            ]);
             $ordinal_number = $cartDb->ordinal_number;
+        }
 
         $cart = new Cart;
         $cart->user_id = $user->id;
@@ -45,6 +60,13 @@ class CartController extends Controller
     // Szczegoly koszyka
     public function show(Cart $cart)
     {
+        $user = auth()->user(); 
+        if ($user == null)
+        {            
+            return view('cart.index', [
+                'carts' => Cart::with('cartStatus')->where('cart_status_id', '1')->where('user_id',0)->get()]);
+        }
+
         return view('cart.show', [
             'cart' => $cart->load(['cartStatus', 'cartElements', 'cartElements.dish'])
         ]);
@@ -54,6 +76,13 @@ class CartController extends Controller
     // Usuwanie koszyka
     public function remove(Cart $cart)
     {
+        $user = auth()->user(); 
+        if ($user == null)
+        {            
+            return view('cart.index', [
+                'carts' => Cart::with('cartStatus')->where('cart_status_id', '1')->where('user_id',0)->get()]);
+        }
+        
         $cart->delete();
         $cart->save();
         

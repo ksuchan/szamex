@@ -30,6 +30,7 @@ class CreateOrderTable extends Migration
             $table->string('phone_number');
             $table->string('payment');
             $table->string('delivery');
+            $table->bigInteger('user_id');
             $table->bigInteger('order_status_id')->foreign('order_status_id')->references('id')->on('order_status');
         });
 		

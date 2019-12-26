@@ -11,9 +11,12 @@ class OrderController extends Controller
 {
     public function index()
     {
+        $user = auth()->user(); 
+        $userId = 0;
+        if ($user != null)
+            $userId = $user->id;
         return view('order.index', [
-            'orders' => Order::all()
-        ]);
+            'orders' => Order::where('user_id',$userId)->get()   ]);
     }
 
     public function realizeOrder(Cart $cart)
@@ -27,6 +30,13 @@ class OrderController extends Controller
     {
         //$input = $request->all();
         //dd($input);
+
+        $user = auth()->user(); 
+        if ($user == null)
+        {            
+            return view('cart.index', [
+                'carts' => Cart::with('cartStatus')->where('cart_status_id', '1')->where('user_id',0)->get()]);
+        }
 
         $data = request()->validate(
             [
@@ -60,6 +70,7 @@ class OrderController extends Controller
         $order->order_code = $fullName;
         $order->restaurant_id = 0;//$cartDb->restaurant_id;
         $order->supplier_id = 0;
+        $order->user_id = $user->id;
         $order->total_price = ($cartDb->cartElements->sum('price') + 9.99);
         if ($delivery == 'Dostawa'){
             $order->delivery_price = 9.99;
