@@ -12,8 +12,8 @@ class CartElementController extends Controller
     
     public function index()
     {
-        return view('cartElement.index', [
-            'cartElement' => CartElement::all()
+        return view('cart.index', [
+            'carts' => Cart::with('cartStatus')->get()
         ]);
     }
     // Create new cart element
@@ -52,11 +52,13 @@ class CartElementController extends Controller
     // Dodanie ilosci
     public function addAmount(CartElement $cartElement)
     {
+        $cart = Cart::where('Id', $cartElement->cart_id)->first();  
+        $dish = Dish::where('Id', $cartElement->dishes_id)->first();      
+
         $cartElement->amount = $cartElement->amount+1;
-        $cartElement->price = $cartElement->price+$cartElement->price;
+        $cartElement->price = $dish->price * $cartElement->amount;
         $cartElement->save();
 
-        $cart = Cart::where('Id', $cartElement->cart_id)->first();
 
         return view('cart.show', ['cart' => $cart]);
     }
@@ -65,12 +67,14 @@ class CartElementController extends Controller
     public function removeAmount(CartElement $cartElement)
     {
         $cart = Cart::where('Id', $cartElement->cart_id)->first();
+        $dish = Dish::where('Id', $cartElement->dishes_id)->first();
+
         if (($cartElement->amount-1) <= 0)
         {            
             return view('cart.show', ['cart' => $cart]);
         }
         $cartElement->amount = $cartElement->amount-1;
-        $cartElement->price = $cartElement->price - $cartElement->price;
+        $cartElement->price = $dish->price * $cartElement->amount;
         $cartElement->save();
 
 
