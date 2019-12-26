@@ -37,17 +37,30 @@
              <span class="text-danger">{{ $errors->first('phoneNumber') }}</span>
           </div>
        </div>
-       <div class="select-payment">
-           <label>Forma płatności</label>
-           <div class="select-wrapper">
-               <select>
-                   <option>Gotówka</option>
-                   <option>Karta</option>
-                   <option>Przelew</option>
-                   <option>Bitcoin</option>
-               </select>
-           </div>
-       </div>
+       <div class="form-group">
+         <div name="selected-payment" class="select-payment">
+            <label>Forma płatności</label>
+            <div name="payment" class="select-wrapper">
+                  <select name="payment">
+                     <option name="Gotówka">Gotówka</option>
+                     <option name="Karta">Karta</option>
+                     <option name="Przelew">Przelew</option>
+                     <option name="Bitcoin">Bitcoin</option>
+                  </select>
+            </div>
+         </div>
+      </div>
+       <div class="form-group">
+         <div class="select-delivery">
+            <label>Forma dostawy</label>
+            <div class="select-wrapper" id="delivery" >
+                  <select name="delivery">
+                     <option>Dostawa</option>
+                     <option>Odbiór osobisty</option>
+                  </select>
+            </div>
+         </div>
+      </div>
        <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
              <button type="submit" class="btn btn-default">PŁACĘ</button>

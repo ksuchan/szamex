@@ -28,6 +28,8 @@ class CreateOrderTable extends Migration
             $table->string('delivery_address');
             $table->string('delivery_city');
             $table->string('phone_number');
+            $table->string('payment');
+            $table->string('delivery');
             $table->bigInteger('order_status_id')->foreign('order_status_id')->references('id')->on('order_status');
         });
 		

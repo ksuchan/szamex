@@ -25,6 +25,9 @@ class OrderController extends Controller
 
     public function createOrder(Request $request, Cart $cart)
     {
+        //$input = $request->all();
+        //dd($input);
+
         $data = request()->validate(
             [
             'fullName' => 'required',
@@ -37,6 +40,11 @@ class OrderController extends Controller
         $address = $request->input('address');
         $phoneNumber = $request->input('phoneNumber');
         $city = $request->input('city');
+        $payment = $request->input('payment');
+        $delivery = $request->input('delivery');
+
+        $now = now(); //current date/time
+        $now->addHour();
 
         $user = auth()->user(); 
 
@@ -44,6 +52,7 @@ class OrderController extends Controller
 
         $cartElement_group_by_restaurant = $cartDb->cartElements->groupBy('restaurant_id');
         
+        // ZAMÓWIENIE
         $order = new Order;
         $order->delivery_address = $address;
         $order->phone_number = $phoneNumber;
@@ -52,12 +61,19 @@ class OrderController extends Controller
         $order->restaurant_id = 0;//$cartDb->restaurant_id;
         $order->supplier_id = 0;
         $order->total_price = ($cartDb->cartElements->sum('price') + 9.99);
-        $order->delivery_price = 9.99;
+        if ($delivery == 'Dostawa'){
+            $order->delivery_price = 9.99;
+        }
+        else {
+            $order->delivery_price = 0;
+        }
         $order->order_price = $cartDb->cartElements->sum('price');
         $order->discount_price = 0;
-        $order->delivery_time = '2019-11-24 12:29:29';
+        $order->delivery_time = $now;
         $order->order_status_id = 1;
         $order->delivery_city = $city;
+        $order->payment = $payment;
+        $order->delivery = $delivery;
         
         $order->Save();
 
@@ -75,7 +91,12 @@ class OrderController extends Controller
             $orderElement->Save();
         }
 
+        $cart->cart_status_id = 2;
+        $cart->Save();
 
+        return view('order.show', [
+            'order' => $order
+        ]);
     }
 
     /**
