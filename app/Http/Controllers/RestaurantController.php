@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Restaurant;
+use App\Order;
 use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
@@ -17,6 +18,49 @@ class RestaurantController extends Controller
         return view('restaurant.index', [
             'restaurants' => Restaurant::with('dishes', 'openingHours')->get()
         ]);
+    }
+
+    public function realize()
+    {
+        $user = auth()->user(); 
+        //dd($user);
+        // Dodatkowo sprawdzic czy to jest restauracja
+        return view('restaurant.realize', [
+            'orders' => Order::where('order_status_id',1)->orWhere('order_status_id',2)->get()   ]);
+    }
+
+    public function details(Order $order)
+    {
+        return view('restaurant.details', [
+            'order' => $order   ]);        
+    }
+
+    // Odrzucenie zamówienia
+    public function discard(Order $order)
+    {
+        $order->order_status_id = 4;
+        $order->Save();
+        return view('restaurant.realize', [
+            'orders' => Order::where('order_status_id',1)->orWhere('order_status_id',2)->get()   ]);
+    }
+
+    // Wydanie zamówienia
+    public function release(Order $order)
+    {
+        $order->order_status_id = 3;
+        $order->Save();
+        return view('restaurant.realize', [
+            'orders' => Order::where('order_status_id',1)->orWhere('order_status_id',2)->get()   ]);
+    }
+
+    // Pobranie(akceptacja) zamówienia
+    public function get(Order $order)
+    {
+        $order->order_status_id = 2;
+        $order->Save();
+        
+        return view('restaurant.details', [
+            'order' => $order   ]);
     }
 
     /**

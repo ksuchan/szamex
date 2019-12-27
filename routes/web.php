@@ -42,19 +42,14 @@ Route::resource('restaurant', 'RestaurantController');
 Route::resource('order', 'OrderController');
 Route::resource('cart', 'CartController');
 Route::resource('cartElement', 'CartElementController');
+Route::resource('deliverer', 'DelivererController');
 
 Route::resource('dish', 'DishController');
-
-// Czy mi to jest potrzebne? xD
-// Route::get('carts', function(){   return view('cart/search');})->name('carts.search');
-
-// Route::get('carts/list', function(){return view('cart/list');})->name('carts.list');
 
 Route::get('/cart/add/{cart}', 'CartController@add')->name('cart.add');
 Route::get('/cart/create/', 'CartController@create')->name('cart.create');
 Route::get('/cart/remove/{cart}', 'CartController@remove')->name('cart.remove');
 
-//Route::get('/cartElement/add/{cartElement}', 'CartElement\CartElementController@addCartElement')->name('cartElement.add');
 Route::get('/cartElement/remove/{cartElement}', 'CartElementController@remove')->name('cartElement.remove');
 
 Route::get('/cartElement/create/{dish}', 'CartElementController@create')->name('cartElement.create');
@@ -63,7 +58,18 @@ Route::get('/cartElement/removeAmount/{cartElement}', 'CartElementController@rem
 
 Route::get('/order/realizeOrder/{cart}', 'OrderController@realizeOrder')->name('order.realizeOrder');
 Route::get('/order/create/{cart}', 'OrderController@create')->name('order.create');
-Route::post('/createOrder/{cart}', 'OrderController@createOrder')->name('order.createOrder');;
+Route::post('/createOrder/{cart}', 'OrderController@createOrder')->name('order.createOrder');
+
+Route::get('/deliverer/get/{order}', 'DelivererController@get')->name('deliverer.get');
+Route::get('/deliverer/discard/{order}', 'DelivererController@discard')->name('deliverer.discard');
+Route::get('/deliverer/delivered/{order}', 'DelivererController@delivered')->name('deliverer.delivered');
+
+
+Route::get('/restaurants/realize/', 'RestaurantController@realize')->name('restaurant.realize');
+Route::get('/restaurants/get/{order}', 'RestaurantController@get')->name('restaurant.get');
+Route::get('/restaurants/discard/{order}', 'RestaurantController@discard')->name('restaurant.discard');
+Route::get('/restaurants/details/{order}', 'RestaurantController@details')->name('restaurant.details');
+Route::get('/restaurants/release/{order}', 'RestaurantController@release')->name('restaurant.release');
 
 Route::get('/admin/users', 'Admin\UsersController@list')->name('users.list');
 Route::get('/admin/users/add', 'Admin\UsersController@addUser')->name('users.add');

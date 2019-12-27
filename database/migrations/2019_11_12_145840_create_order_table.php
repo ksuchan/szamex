@@ -19,7 +19,7 @@ class CreateOrderTable extends Migration
             $table->string('order_code');
             $table->bigInteger('cart_id')->foreign('cart_id')->references('id')->on('cart');
             $table->bigInteger('restaurant_id')->foreign('restaurant_id')->references('id')->on('restaurant');
-            $table->bigInteger('supplier_id')->foreign('supplier_id')->references('id')->on('supplier');
+            $table->bigInteger('supplier_id');
             $table->float('total_price');
             $table->float('delivery_price');
             $table->float('order_price');

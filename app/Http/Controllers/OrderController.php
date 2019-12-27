@@ -19,7 +19,7 @@ class OrderController extends Controller
         return view('order.index', [
             'orders' => Order::where('user_id',$userId)->get()   ]);
     }
-
+    // Realizacja zamówienia z koszyka
     public function realizeOrder(Cart $cart)
     {
         return view('order.realizeOrder', [
@@ -27,11 +27,9 @@ class OrderController extends Controller
         ]);
     }
 
+    // Tworzenie zamówienia
     public function createOrder(Request $request, Cart $cart)
     {
-        //$input = $request->all();
-        //dd($input);
-
         $user = auth()->user(); 
         $userId = 0;
         if ($user != null)
@@ -58,19 +56,12 @@ class OrderController extends Controller
         $payment = $request->input('payment');
         $delivery = $request->input('delivery');
 
-        $now = now(); //current date/time
+        $now = now(); 
         $now->addHour();
-
         $user = auth()->user(); 
-
         $cartDb = Cart::find($cart->id);
-
-        //dd($cartDb);
-
         $cartElement_group_by_restaurant = $cartDb->cartElements->groupBy('restaurant_id');
         
-        //dd($cartElement_group_by_restaurant);
-
         foreach($cartElement_group_by_restaurant as $cartElement_group)
         {            
             $id = $cartElement_group->first()->id;
@@ -86,7 +77,8 @@ class OrderController extends Controller
             $order->supplier_id = 0;
             $order->user_id = $user->id;
             $order->total_price = ($cartElement_group->sum('price') + 9.99);
-            if ($delivery == 'Dostawa'){
+            if ($delivery == 'Dostawa')
+            {
                 $order->delivery_price = 9.99;
             }
             else {
@@ -115,8 +107,6 @@ class OrderController extends Controller
                 $orderElement->order_element_status_id = 1;
                 $orderElement->Save();
             }
-            //$element = $cartElement_group->get();
-           // dd($cartElement_group);
         }
         
         $cart->cart_status_id = 2;
@@ -126,12 +116,7 @@ class OrderController extends Controller
             'orders' => Order::where('user_id',$userId)->get()   ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Order  $order
-     * @return \Illuminate\Http\Response
-     */
+    // Szczegóły zamówienia
     public function show(Order $order)
     {
         return view('order.show', [

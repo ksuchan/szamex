@@ -25,7 +25,8 @@ class Order extends Model
     public function cart() {
         return $this->belongsTo('App\Cart');
     }
-    public function supplier() {
-        return $this->belongsTo('App\Supplier');
+    public function deliverer() {
+        return $this->belongsTo('App\Deliverer');
     }
+    
 }
