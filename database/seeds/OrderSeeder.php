@@ -13,8 +13,8 @@ class OrderSeeder extends Seeder
      */
     public function run()
     {
-        if(DB::table('order')->find(1) === null){
-            DB::table('order')->insert([
+        if(DB::table('orders')->find(1) === null){
+            DB::table('orders')->insert([
                 'Id' => 1,
                 'order_code' => 'kod zamówienia',
                 'cart_id' => 1,

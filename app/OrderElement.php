@@ -10,9 +10,9 @@ class OrderElement extends Model
     use SoftDeletes;
 
     
-    // protected $attributes = array(
-    //     'price', 'amount', 'discount_price', 'delivery_time', 'delivery_address', 'delivery_city'
-    // );
+    protected $attributes = array(
+         'price', 'amount', 'discount_price', 'delivery_time', 'delivery_address', 'delivery_city'
+    );
 
     public function orderElementStatus() {
         return $this->belongsTo('App\OrderElementStatus');
