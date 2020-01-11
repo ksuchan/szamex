@@ -1,0 +1,46 @@
+.auth-modal {
+    display: block;
+    position: fixed;
+    width: 600px;
+    height: auto;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    background: rgba(#000000, 0.7);
+    padding: 40px;
+    border-radius: 50px;
+    .input-wrapper,
+    .password-reset,
+    .button-wrapper,
+    .new-account {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    .input-wrapper {
+        input {
+            width: 100%;
+        }
+    }
+    .password-reset,
+    .new-account {
+        text-align: right;
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    }
+    .button-wrapper {
+        text-align: center;
+        margin-top: 20px;
+        button {
+            width: 200px;
+            justify-content: center;
+        }
+    }
+    .new-account {
+        margin-top: 10px;
+        a {
+            text-decoration: underline;
+        }
+    }
+}

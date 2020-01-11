@@ -4,7 +4,7 @@
     <div class="restaurant-selection">
         <div class="content">
             <div class="container">
-                <form class="form-restaurant-selection">
+                <div class="form-restaurant-selection">
                     <div class="select-city">
                         <label>Wybierz miasto</label>
                         <div class="select-wrapper">
@@ -30,7 +30,7 @@
                     </div>
                     
                     <div class="select-button">
-                        <button type="submit">Pokaż restauracje</button>
+                        <a href="{{ route('restaurants.list') }}"><button type="submit">Pokaż restauracje</button>
                     </div>
                 </div>
             </div>
