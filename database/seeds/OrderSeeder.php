@@ -13,20 +13,26 @@ class OrderSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('orders')->insert([
-            'Id' => 1,
-            'OrderCode' => 'kod zamówienia',
-            'CartId' => 1,
-            'RestaurantId' => 1,
-            'SupplierId' => 1,
-            'TotalPrice' => 99.9,
-            'DeliveryPrice' => 39.9,
-            'OrderPrice' => 60.0,
-            'DiscountPrice' => 0.0,
-            'DeliveryTime' => '2019-12-10 16:30:00',
-            'DeliveryAddress' => 'Opole ul. Ozimska 14.7',
-            'DeliveryCity' => 'Opole',			
-            'OrderStatusId' => 1
-        ]);
+        if(DB::table('orders')->find(1) === null){
+            DB::table('orders')->insert([
+                'Id' => 1,
+                'order_code' => 'kod zamówienia',
+                'cart_id' => 1,
+                'restaurant_id' => 1,
+                'supplier_id' => 1,
+                'Total_price' => 99.9,
+                'Delivery_Price' => 39.9,
+                'Order_Price' => 60.0,
+                'Discount_Price' => 0.0,
+                'Delivery_Time' => '2019-12-10 16:30:00',
+                'Delivery_Address' => 'Opole ul. Ozimska 14.7',
+                'Delivery_City' => 'Opole',			
+                'Order_Status_Id' => 1,
+                'Phone_Number' => '123123123',
+                'Payment' => 'card',
+                'delivery' => 'own',
+                'user_id' => 1
+            ]);
+        }
     }
 }

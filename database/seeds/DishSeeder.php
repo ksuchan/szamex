@@ -12,14 +12,15 @@ class DishSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
+    {  
         DB::table('dishes')->insert([
             'name' => Str::random(15),
             'ingredients' => Str::random(126),
             'price' => rand(0.2, 45.5),
             'gluten' => rand(0,1),
             'vegan' => rand(0,1),
-            'spicy' => rand(0,1)
+            'spicy' => rand(0,1),
+            'restaurant_id' => 1
         ]);
     }
 }
