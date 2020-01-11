@@ -4,11 +4,7 @@
     <div class="restaurant-selection">
         <div class="content">
             <div class="container">
-<<<<<<< HEAD
                 <form action="{{ route('restaurant.index')}}" method="get" class="form-restaurant-selection">
-=======
-                <div class="form-restaurant-selection">
->>>>>>> styleguide
                     <div class="select-city">
                         <label>Wybierz miasto</label>
                         <div class="select-wrapper">
