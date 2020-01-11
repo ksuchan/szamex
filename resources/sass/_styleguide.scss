@@ -1,6 +1,7 @@
 body {
     font-family: $fontFamily;
-    &.home {
+    &.home,
+    &.auth {
         background-image: url(../images/bg-front.png);
         background-size: 61%;
         background-position: top right;
@@ -63,6 +64,12 @@ button,
         text-decoration: none;
         color: white;
     }
+    &.blue {
+        background: #5663ff;
+        &:hover {
+            background: darken(#5663ff, 10%);
+        }
+    }
 }
 
 
@@ -79,8 +86,8 @@ input {
     border: solid 2px #000000;
     color: #FFFFFF;
     border-radius: 36px;
-    padding: 15px 0 15px 90px;
-    min-width: 475px;
+    padding: 15px 30px;
+    min-width: 200px;
     font-size: 26px;
     margin-bottom: 15px;
 }
