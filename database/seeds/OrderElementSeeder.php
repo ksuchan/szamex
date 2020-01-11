@@ -13,18 +13,16 @@ class OrderElementSeeder extends Seeder
      */
     public function run()
     {
-        if(DB::table('order_element')->find(1) === null){
-            DB::table('order_element')->insert([
-                'Id' => 1,
-                'Order_Id' => 1,
-                'Cart_Element_Id' => 1,	
-                'Order_Element_Status_Id' => 1,
-                'dish_id' => 1,
-                'Price' => 99.9,
-                'Discount_Price' => 0.0,
-                'Amount' => 1,
-                'Restaurant_Id' => 1
-            ]);
-        }
+        DB::table('order_elements')->insert([
+            'Id' => 1,
+            'OrderId' => 1,
+            'CartElementId' => 1,	
+            'OrderElementStatusId' => 1,
+            'ProductId' => 1,
+            'Price' => 99.9,
+            'DiscountPrice' => 0.0,
+            'Amount' => 1,
+            'ProductId' => 1',	
+        ]);
     }
 }
