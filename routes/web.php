@@ -21,6 +21,7 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('restaurants', function(){
     return view('restaurant/search');
