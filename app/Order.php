@@ -8,12 +8,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Order extends Model
 {
     use SoftDeletes;
-
     
-    // protected $attributes = array(
-    //     'order_code', 'total_price', 'delivery_price', 'order_price', 'discount_price', 'delivery_time', 'delivery_address', 'delivery_city'
-    // );
-
+    protected $attributes = array(
+        'order_code', 'total_price', 'delivery_price', 'order_price', 'discount_price', 'delivery_time', 'delivery_address', 'delivery_city'
+    );
+    public function orderElements() {
+        return $this->hasMany('App\OrderElement');
+    }
     public function orderStatus() {
         return $this->belongsTo('App\OrderStatus');
     }
@@ -23,7 +24,8 @@ class Order extends Model
     public function cart() {
         return $this->belongsTo('App\Cart');
     }
-    public function supplier() {
-        return $this->belongsTo('App\Supplier');
+    public function deliverer() {
+        return $this->belongsTo('App\Deliverer');
     }
+    
 }

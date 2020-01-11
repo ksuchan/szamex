@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <a href="{{ route('restaurant.index') }}">Powrót do listy restauracji</a>
 <h1>{{ $restaurant->name  }}</h1>
 <p>Jadłospis:</p>
@@ -32,3 +36,4 @@
         </tr>
     @endforeach
 </table>
+@endsection

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrderTable extends Migration
+class CreateOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,12 +14,12 @@ class CreateOrderTable extends Migration
     public function up()
     {
         
-		Schema::create('order', function (Blueprint $table) {
+		Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('order_code');
             $table->bigInteger('cart_id')->foreign('cart_id')->references('id')->on('cart');
             $table->bigInteger('restaurant_id')->foreign('restaurant_id')->references('id')->on('restaurant');
-            $table->bigInteger('supplier_id')->foreign('supplier_id')->references('id')->on('supplier');
+            $table->bigInteger('supplier_id');
             $table->float('total_price');
             $table->float('delivery_price');
             $table->float('order_price');
@@ -28,6 +28,9 @@ class CreateOrderTable extends Migration
             $table->string('delivery_address');
             $table->string('delivery_city');
             $table->string('phone_number');
+            $table->string('payment');
+            $table->string('delivery');
+            $table->bigInteger('user_id');
             $table->bigInteger('order_status_id')->foreign('order_status_id')->references('id')->on('order_status');
         });
 		
@@ -41,5 +44,6 @@ class CreateOrderTable extends Migration
     public function down()
     {
         Schema::dropIfExists('order');
+        Schema::dropIfExists('orders');
     }
 }

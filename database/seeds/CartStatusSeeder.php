@@ -13,17 +13,23 @@ class CartStatusSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('cart_status')->insert([
-            'Id' => 1,
-            'Name' => 'Nowy'
-        ]);
-        DB::table('cart_status')->insert([
-            'Id' => 2,
-            'Name' => 'Zrealizowany'
-        ]);
-        DB::table('cart_status')->insert([
-            'Id' => 3,
-            'Name' => 'Usunięty'
-        ]);
+        if(DB::table('cart_status')->find(1) === null){
+            DB::table('cart_status')->insert([
+                'Id' => 1,
+                'Name' => 'Nowy'
+            ]);
+        }
+        if(DB::table('cart_status')->find(2) === null){
+            DB::table('cart_status')->insert([
+                'Id' => 2,
+                'Name' => 'Zrealizowany'
+            ]);
+        }
+        if(DB::table('cart_status')->find(3) === null){
+            DB::table('cart_status')->insert([
+                'Id' => 3,
+                'Name' => 'Usunięty'
+            ]);
+        }
     }
 }

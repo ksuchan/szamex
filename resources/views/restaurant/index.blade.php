@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <section>
     <table cellpadding="10">
         <thead>
@@ -49,3 +53,4 @@
         </tbody>
     </table>
 </section>
+@endsection

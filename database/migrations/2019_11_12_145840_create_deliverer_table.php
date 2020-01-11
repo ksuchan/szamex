@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSupplierTable extends Migration
+class CreateDelivererTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,11 @@ class CreateSupplierTable extends Migration
     public function up()
     {
         
-		Schema::create('suppliers', function (Blueprint $table) {
+		Schema::create('deliverers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->bigInteger('user_id');
+            $table->bigInteger('order_id')->foreign('order_id')->references('id')->on('order');
+            $table->bigInteger('result');
             
         });
 		
@@ -29,6 +31,6 @@ class CreateSupplierTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('suppliers');
+        Schema::dropIfExists('deliverers');
     }
 }
