@@ -1,10 +1,20 @@
-@extends('layouts.app')
 
-@section('content')
+@php
+    $current_section = 'cart'
+@endphp
 
-<section>
-        <a href="{{ route('cart.create') }}">Dodaj nowy</a>
+@extends('layouts.order')
 
+@section('order_image')
+    <div class="media">
+        <img src="" />
+    </div>
+@endsection
+
+@section('order_content')
+<div class="table-wrapper">
+
+    <a href="{{ route('cart.create') }}">Dodaj nowy</a>
     <table cellpadding="10">
         <thead>
             <tr>
@@ -44,6 +54,5 @@
             @endforelse
         </tbody>
     </table>
-</section>
-
+</div>
 @endsection

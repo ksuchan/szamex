@@ -45,7 +45,7 @@
                              {{ $cartElement->dishes_id }}                        
                     </td>
                     <td>
-                              {{ $cartElement->dish}}                  
+                              {{ $cartElement->dish->name}}                  
                     </td>
                     <td>
                             {{ $cartElement->restaurant_id }} 

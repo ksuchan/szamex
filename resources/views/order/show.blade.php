@@ -48,7 +48,7 @@
                           {{ $orderElement->dishes_id}}      
                 </td>
                 <td>
-                         {{ $orderElement->dish}}                        
+                         {{ $orderElement->dish }}                        
                 </td>
                 <td>
                         {{ $orderElement->price }}                     
