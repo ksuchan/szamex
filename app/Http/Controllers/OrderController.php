@@ -101,6 +101,7 @@ class OrderController extends Controller
                 $orderElement->cart_element_id = $cartElement->id;
                 $orderElement->restaurant_id = $cartElement->restaurant_id;
                 $orderElement->dishes_id = $cartElement->dishes_id;
+                $orderElement->dish_id = $cartElement->dishes_id;
                 $orderElement->price = $cartElement->price;
                 $orderElement->discount_price = 0;
                 $orderElement->amount = $cartElement->amount;

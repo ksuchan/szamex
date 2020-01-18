@@ -25,6 +25,7 @@ class CartElementController extends Controller
         $cartElement = new CartElement;
         $cartElement->restaurant_id = $dish->restaurant_id;
         $cartElement->dishes_id = $dish->id;
+        $cartElement->dish_id = $dish->id;
         $cartElement->price = $dish->price;
         $cartElement->amount = 1;
         $cartElement->cart_element_status_id = 1;
